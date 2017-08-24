@@ -2,10 +2,7 @@
 
 \input{../preamble}
 
-\outcome{To be able to use the method of substitution to solve some ``simple'' integrals, with an emphasis on being able to correctly identify what to substitute for.}
-\outcome{Undo the Chain Rule.}
-\outcome{Calculate indefinite integrals (antiderivatives) using basic substitution.}
-\outcome{Calculate definite integrals using basic substitution.}
+
 \title[Dig-In:]{The idea of substitution}
 \begin{document}
 \begin{abstract}
@@ -51,21 +48,21 @@ first is directly using the formula
 \begin{example}
 Compute:
 \[
-\int_1^3 x\cos(x^2)\d x
+\int_1^3 x e^{x^{2}}\d x
 \]
 \begin{explanation}
-A little thought reveals that if $x\cos(x^2)$ is the derivative of
+A little thought reveals that if $x e^{x^{2}}$ is the derivative of
 some function, then it must have come from an application of the chain
 rule. 
 \[
 \int \underbrace{x}_{\text{derivative of inside}}\cos(\underbrace{x^2}_{\text{inside}})\d x.
 \]
 Set $g(x) = x^2$, so $g'(x) = 2x$, and now it must be that $f'(g) =
-\frac{\cos(g)}{2}$. Now we see
+\frac{e^{g}}{2}$. Now we see
 \begin{align*}
-\int_1^3 x\cos(x^2)\d x &= \int_1^9 \frac{\cos(g)}{2}\d g\\
-&= \eval{\frac{\sin(g)}{2}}_1^9 \\
-&= \frac{\sin(9) -\sin(1)}{2}.
+\int_1^3 x e^{x^{2}}\d x &= \int_1^9 \frac{e^{g}}{2}\d g\\
+&= \eval{\frac{e^{g}}{2}}_1^9 \\
+&= \frac{e^{9} -e^{1}}{2}.
 \end{align*}
 Notice the change of endpoints in the first equality!  
 We obtained the new integrands by the computations
@@ -83,7 +80,7 @@ of differentials.
 \begin{example}\label{main example}
 Compute:
 \[
-\int_1^3 x\cos(x^2)\d x
+\int_1^3 x e^{x^{2}}\d x
 \]
 \begin{explanation}
 Here we will set $g(x) = x^2$. Then $\d g = \answer[given]{2x} \d x$,
@@ -91,12 +88,12 @@ where we are thinking in terms of differentials. So we can solve for
 $\d x$ to get $\d x = \frac{\d g}{\answer[given]{2x}}$.  We then see
 that
 \begin{align*}
-  \int_1^3 x \cos(x^2) \d x &= \int_{g(1)}^{g(3)} x \cos(g) \frac{\d g}{2x}\\
-  &= \int_{1}^{9} \frac{\cos(g)}{2}\d g .
+  \int_1^3 x e^{x^{2}} \d x &= \int_{g(1)}^{g(3)} x e^{g} \frac{\d g}{2x}\\
+  &= \int_{1}^{9} \frac{e^{g}}{2}\d g .
 \end{align*}
 At this point, we can continue as we did before and write
 \[
-\int_1^3 x\cos(x^2)\d x= \frac{\sin(9) -\sin(1)}{2}.
+\int_1^3 x e^{x^{2}}\d x= \frac{e^{9} -e^{1}}{2}.
 \]
 \end{explanation}
 \end{example}
@@ -107,22 +104,22 @@ its own, we'll repeat the example one more time demonstrating this.
 \begin{example}
 Compute:
 \[
-\int_1^3 x\cos(x^2)\d x
+\int_1^3 x e^{x^{2}}\d x
 \]
 \begin{explanation}
 Here we start as we did before, setting $g(x)=x^2$. Now $\d g =  2x \d x$,
 again thinking in terms of differentials. Now we see that
 \[
-\int x \cos(x^2) \d x = \int x \cos(g) \frac{\d g}{2x} = \int \frac{\cos(g)}{2}\d g .
+\int x e^{x^{2}} \d x = \int x e^{g} \frac{\d g}{2x} = \int \frac{e^{g}}{2}\d g .
 \]
 Hence 
 \[
-\int x\cos(x^2)\d x = \frac{\sin(g)}{2} = \frac{\sin(x^2)}{2}.
+\int x e^{x^{2}}\d x = \frac{e^{g}}{2} = \frac{e^{x^{2}}}{2}.
 \]
 So
 \begin{align*}
-\int_1^3 x\cos(x^2)\d x &=\eval{\frac{\sin(x^2)}{2}}_1^3\\
-&= \frac{\sin(9) -\sin(1)}{2}.
+\int_1^3 x e^{x^{2}}\d x &=\eval{\frac{e^{x^{2}}}{2}}_1^3\\
+&= \frac{e^{9} -e^{1}}{2}.
 \end{align*}
 \end{explanation}
 \end{example}
@@ -199,10 +196,10 @@ and so
 \begin{example}
   Compute:
   \[
-  \int_{1}^{e^{\frac{\pi}{4}}} \frac{\cos(\ln x)}{x} \d x
+  \int_{1}^{e^{2}} \frac{\sqrt{\ln x}}{x} \d x
   \]
 \begin{explanation}
-Here the ``ugly'' part here is $\cos(\ln x)$.  So we substitute for
+Here the ``ugly'' part here is $\sqrt{\ln x}$.  So we substitute for
 the inside:
 \[
 g(x)=\answer[given]{\ln x}.
@@ -214,14 +211,14 @@ Then
 Notice that
 \begin{align*}
 g(1) &= \ln (1) = \answer[given]{0} \\
-g \left( e^{\frac{\pi}{4}} \right) &= \ln \left( e^{\frac{\pi}{4}} \right) = \answer[given]{\frac{\pi}{4}}.
+g \left( e^{4} \right) &= \ln \left( e^{4} \right) = \answer[given]{4}.
 \end{align*}
 Then we substitute back into the original integral and solve:
 \begin{align*}
-\int_{1}^{e^{\frac{\pi}{4}}} \frac{\cos(\ln x)}{x} \d x &= \int_0^{\frac{\pi}{4}} \frac{\cos(g)}{x} x \d g  \\
-&= \int_0^{\frac{\pi}{4}} \cos(g) \d g  \\
-&= \eval{\answer[given]{\sin(g)}}_{0}^{\frac{\pi}{4}}  \\
-&= \answer[given]{\frac{\sqrt{2}}{2}} - \answer[given]{0} = \answer[given]{\frac{\sqrt{2}}{2}}.
+\int_{1}^{e^{4}} \frac{\sqrt{\ln x}}{x} \d x &= \int_0^{4} \frac{\sqrt{g}}{x} x \d g  \\
+&= \int_0^{4} \sqrt{g} \d g  \\
+&= \eval{\answer[given]{\frac{2x^{3/2}}{3}}}_{0}^{4}  \\
+&= \answer[given]{\frac{16}{3}} - \answer[given]{0} = \answer[given]{\frac{16}{3}}.
 \end{align*}
 \end{explanation}
 \end{example}

@@ -1,0 +1,148 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title[Dig-In]{Increasing and Decreasing}
+
+
+
+  
+
+
+\begin{document}
+\begin{abstract}
+
+\end{abstract}
+\maketitle
+
+\section{Derivatives and signs}
+
+The method of the previous section for deciding whether there is a
+local maximum or minimum at a critical point by testing ``near-by''
+points is not always convenient. Instead, since we have already had to
+compute the derivative to find the critical points, we can use
+information about the derivative to decide. Recall that
+\begin{itemize}
+\item If $f'(x) >0$ on an interval, then $f$ is increasing on that interval.
+\item If $f'(x) <0$ on an interval, then $f$ is decreasing on that interval.
+\end{itemize}
+
+\begin{example}\label{E:localextrema}
+Consider the function 
+\[
+f(x) = \frac{x^4}{4}+\frac{x^3}{3}-x^2
+\]
+Find the intervals on which $f$ is increasing and decreasing.
+
+
+\begin{explanation}
+Start by computing
+\[
+\ddx f(x) = \answer[given]{x^3+x^2-2x}.
+\]
+Now we need to find when this function is positive and when it is
+negative. We will find these values by constructing a sign table
+
+To do this, solve 
+\[
+f'(x) = \answer[given]{x^3+x^2-2x} =0.
+\]
+Factor $f'(x)$
+\begin{align*}
+f'(x) &= \answer[given]{x^3+x^2-2x} \\
+&=x(\answer[given]{x^2+x-2})\\
+&=x(x+2)\answer[given]{(x-1)}.
+\end{align*}
+Now we can check points \textbf{between} the these points to find
+when $f'(x)$ is increasing and decreasing:
+\begin{align*}
+  f'(-3)&=\answer[given]{-12},\\
+  f'(.5)&=\answer[given]{-0.625},\\
+  f'(-1)&=\answer[given]{2},\\
+  f'(2)&=\answer[given]{8}.
+\end{align*}
+From this we can make a sign table for $f'(x)$:
+
+\begin{image}
+\begin{tikzpicture}
+	\begin{axis}[
+            trim axis left,
+            scale only axis,
+            domain=-3:3,
+            ymax=2,
+            ymin=-2,
+            axis lines=none,
+            height=3cm, %% Hard coded height! 
+            width=\textwidth, %% width
+          ]
+          %\addplot [draw=none, fill=fill1, domain=(-3:-2)] {2} \closedcycle;
+          %\addplot [draw=none, fill=fill2, domain=(-2:0)] {2} \closedcycle;
+          %\addplot [draw=none, fill=fill1, domain=(0:1)] {2} \closedcycle;
+          %\addplot [draw=none, fill=fill2, domain=(1:3)] {2} \closedcycle;
+          
+          \addplot [->,textColor] plot coordinates {(-3,0) (3,0)}; %% axis{0};
+
+          \addplot [->,ultra thick,textColor,shorten <=2pt,shorten >=2pt] plot coordinates {(-3,1.5) (-2,.5)}; %% decreasing
+          \addplot [->,ultra thick,textColor,shorten <=2pt,shorten >=2pt] plot coordinates {(-2,.5) (0,1.5)}; %% increasing
+          \addplot [->,ultra thick,textColor,shorten <=2pt,shorten >=2pt] plot coordinates {(0,1.5) (1,.5)}; %% decreasing
+          \addplot [->,ultra thick,textColor,shorten <=2pt,shorten >=2pt] plot coordinates {(1,.5) (3,1.5)}; %% increasing
+          
+          \addplot [dashed, textColor] plot coordinates {(-2,0) (-2,2)};
+          \addplot [dashed, textColor] plot coordinates {(0,0) (0,2)};
+          \addplot [dashed, textColor] plot coordinates {(1,0) (1,2)};
+          
+          \node at (axis cs:-2,0) [anchor=north,textColor] {\footnotesize$-2$};
+          \node at (axis cs:0,0) [anchor=north,textColor] {\footnotesize$0$};
+          \node at (axis cs:1,0) [anchor=north,textColor] {\footnotesize$1$};
+
+          \node at (axis cs:-2.5,-.7) [textColor] {\footnotesize$f'(x)<0$};
+          \node at (axis cs:.5,-.7) [textColor] {\footnotesize$f'(x)<0$};
+          \node at (axis cs:-1,-.7) [textColor] {\footnotesize$f'(x)>0$};
+          \node at (axis cs:2,-.7) [textColor] {\footnotesize$f'(x)>0$};
+
+          %% \node at (axis cs:-2.5,-.5) [anchor=north,textColor] {\footnotesize Decreasing};
+          %% \node at (axis cs:.5,-.5) [anchor=north,textColor] {\footnotesize Decreasing};
+          %% \node at (axis cs:-1,-.5) [anchor=north,textColor] {\footnotesize Increasing};
+          %% \node at (axis cs:2,-.5) [anchor=north,textColor] {\footnotesize Increasing};
+
+        \end{axis}
+\end{tikzpicture}
+\end{image}
+
+Hence $f$ is increasing on $(-2,0)$ and $(1,\infty)$ and $f$ is
+decreasing on $(-\infty,-2)$ and $(0,1)$. 
+
+
+\begin{image}
+\begin{tikzpicture}
+	\begin{axis}[
+            domain=-4:4,
+            ymax=5,
+            ymin=-5,
+            %samples=100,
+            axis lines =middle, xlabel=$x$, ylabel=$y$,
+            every axis y label/.style={at=(current axis.above origin),anchor=south},
+            every axis x label/.style={at=(current axis.right of origin),anchor=west}
+          ]
+          \addplot [dashed, textColor, smooth] plot coordinates {(-2,0) (-2,-2.667)}; %% {.451};
+          \addplot [dashed, textColor, smooth] plot coordinates {(1,0) (1,-.4167)}; %% axis{2.215};
+
+          \addplot [very thick, penColor, smooth] {(x^4)/4 + (x^3)/3 -x^2};
+          \addplot [very thick, penColor2, smooth] {x^3 + x^2 -2*x};
+
+          \node at (axis cs:-1.3,-2) [anchor=west] {\color{penColor}$f$};  
+          \node at (axis cs:-2.1,2) [anchor=west] {\color{penColor2}$f'$};
+
+          %\addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(-2,0)};  %% closed hole
+         % \addplot[color=penColor2,fill=penColor2,only marks,mark=*] coordinates{(1,0)};  %% closed hole
+          %\addplot[color=penColor2,fill=penColor3,only marks,mark=*] coordinates{(0,0)};  %% closed hole
+         % \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(-2,.-2.667)};  %% closed hole
+         % \addplot[color=penColor,fill=penColor,only marks,mark=*] coordinates{(1,-.4167)};  %% closed hole
+        \end{axis}
+\end{tikzpicture}
+\end{image}
+
+\end{explanation}
+\end{example}
+
+\end{document}

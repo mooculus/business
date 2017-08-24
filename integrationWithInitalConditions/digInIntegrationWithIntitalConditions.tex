@@ -1,0 +1,100 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title[Dig-In:]{Integration With Initial Conditions}
+
+\begin{document}
+\begin{abstract}
+  
+\end{abstract}
+\maketitle
+
+Suppose we know that $f"$ is the derivative of some function $f$, is there a way to explicitly find $f$? The 
+answer is yes, provided that we have some additional information: 
+
+$$\int f' \d x = F(x)+C$$
+
+Where $F(x)$ is some antiderivative of $f'(x)$ and $C$ is an arbitrary constant. The problem is that $F(x)$ and $f(x)$ are not
+necessarily the same, just that they are both antiderivatives of $f'$. What we do know is they differ by a constant. For convenience, 
+write
+
+$$F(x)+C_{0}=f(x)$$ 
+
+where $C_{0}$ is a specific constant. In particular:
+
+$$C_{0} = F(x)-f(x)$$
+
+If we know a particular value of $f(x)$ then we can find $C_{0}$. This particular value that we know is called an initial condition.
+
+\begin{example}
+Suppose that $f'(x)=3x^7$ and $f(1)= 2$, find $f(x)$.
+\begin{explanation}
+First we will find the indefinite integral of $f'$:
+\begin{align*}
+\int 8 x^7 \d x &= 3 \int x^7 \d x\\
+&= 3 \cdot \answer[given]{\frac{x^8}{8}}+C.
+\end{align*}
+So we now know that 
+$$f(x)=3 \cdot \answer[given]{\frac{x^8}{8}}+C.$$
+Now we use the initial condition, $f(1)=2$ to find the specific value of $C$
+$$2=f(1)=3 \cdot \answer[given]{\frac{1^8}{8}}+C$$
+So
+$$C=2-\frac{3}{8} = \answer[given]{\frac{13}{8}}$$
+Therefore
+$$f=\answer[given]{\frac{3x^{8}}{8}+\frac{13}{8}}$$
+\end{explanation}
+\end{example}
+
+\section{Marginal Revenue and Marginal Cost}
+
+Let's apply what we've learned about integrating with initial conditions to working with marginal revenue and marginal cost. 
+
+Suppose that $R(q)$ is a total revenue function, then as money is earned only from selling products,
+$$R(0)=0$$
+Likewise, if $C(q)$ is a total cost function, then 
+$$C(0)=C_{0}$$
+where $C_{0}$ is the fixed cost. 
+
+In both of these cases, we have a standard initial condition that we may use.
+
+\begin{example}
+Suppose that $R'(q)=500+3q^{2}$ is a marginal revenue function. Find the total revenue function $R(q)$.
+\begin{explanation}
+First we will find the indefinite integral of $R'$:
+\begin{align*}
+\int R'(q) \d q &= \int 500+3q^{2} \d q\\
+&= \answer[given]{500q+q^{3}+C}
+\end{align*}
+So we now know that 
+$$R(q)=500q+q^{3}+C$$
+Now we use the initial condition, $R(0)=)$ to find the specific value of $C$
+$$0=R(0)=0+C$$
+So
+$$C= \answer[given]{0}$$
+Therefore
+$$R(q)=500q+q^{3}$$
+\end{explanation}
+\end{example}
+
+\begin{example}
+Suppose that $C'(q)=200+q$ is a marginal cost function. Find the total cost function $C(q)$ if fixed costs are 1000.
+\begin{explanation}
+First we will find the indefinite integral of $C'$:
+\begin{align*}
+\int C'(q) \d q &= \int 200+q \d q\\
+&= \answer[given]{200q+\frac{q^{2}}{2}+C}
+\end{align*}
+So we now know that 
+$$R(q)=200q+\frac{q^{2}}{2}+C$$
+Now we use the initial condition. Since the fixed costs are 1000, this means $C(0)=1000$. We can 
+now use this to fnd the specific value of $C$
+$$1000=C(0)=0+C$$
+So
+$$C= \answer[given]{1000}$$
+Therefore
+$$C(q)=200q+\frac{q^{2}}{2}+1000$$
+\end{explanation}
+\end{example}
+
+\end{document}

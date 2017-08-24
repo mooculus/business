@@ -93,15 +93,6 @@ directly from our knowledge of basic derivatives.
 \item $\int e^x \d x= e^x + C$
 \item $\int a^x \d x= \frac{a^x}{\ln(a)}+C$
 \item $\int \frac{1}{x} \d x= \ln|x|+C$
-\item $\int \cos(x) \d x = \sin(x) + C$
-\item $\int \sin(x) \d x = -\cos(x) + C$  
-\item $\int \tan(x) \d x = -\ln|\cos(x)| + C$  
-\item $\int \sec^2(x) \d x = \tan(x) + C$ 
-\item $\int \csc^2(x) \d x = -\cot(x) + C$
-\item $\int \sec(x)\tan(x) \d x = \sec(x) + C$
-\item $\int \csc(x)\cot(x) \d x = -\csc(x) + C$
-\item $\int \frac{1}{x^2+1}\d x = \arctan(x) + C$
-\item $\int \frac{1}{\sqrt{1-x^2}}\d x= \arcsin(x)+C$
 \end{itemize}
 %\end{multicols}
 \end{theorem}
@@ -141,24 +132,7 @@ By the theorems above , we see that
 The sum rule for antiderivatives allows us to integrate
 term-by-term. Let's see an example of this.
 
-\begin{example}
-Compute:
-\[
-\int \left(x^4 + 5x^2 - \cos(x)\right) \d x
-\]
-\begin{explanation}
-Let's start by simplifying the problem using the sum rule for
-antiderivatives, 
-\begin{align*}
-\int &\left(x^4 + 5x^2 - \cos(x)\right) \d x\\
-&= \int x^4 \d x + 5\int x^2 \d x - \int \cos(x) \d x.
-\end{align*}
-Now we may integrate term-by-term to find
-\[
-= \answer[given]{\frac{x^5}{5} + \frac{5x^3}{3}  - \sin(x)}+C.
-\]
-\end{explanation}
-\end{example}
+
 
 
 \begin{warning}
@@ -312,49 +286,9 @@ original guess by this constant to get the solution,
 
 
 
-\begin{template}\label{template:trigchain}
-If the indefinite integral looks \emph{something} like
-\[
-\int \mathrm{junk}\cdot \sin(\mathrm{stuff}) \d x
-\]
-guess
-\[
-\cos(\mathrm{stuff}) \text{ or }\mathrm{junk}\cdot \cos(\mathrm{stuff}),
-\]
-likewise if you have 
-\[
-\int \mathrm{junk}\cdot \cos(\mathrm{stuff}) \d x
-\]
-guess
-\[
-\sin(\mathrm{stuff}) \text{ or }\mathrm{junk}
-\cdot \sin(\mathrm{stuff}).
-\]
-\end{template}
 
 
 
-\begin{example}
-Compute:
-\[
-\int x^4\sin(3x^5+7) \d x
-\]
-\begin{explanation}
-Here we simply try to guess the antiderivative. Start with a guess of
-\[
-\int x^4\sin(3x^5+7)\d x \approx \cos(3x^5+7).
-\]
-To see if your guess is correct, take the derivative of $\cos(3x^5+7)$,
-\[
-\ddx \cos(3x^5+7) = -15x^4\sin(3x^5+7).
-\]
-We are off by a factor of $-1/15$. Hence we should multiply our
-original guess by this constant to find
-\[
-\int x^4\sin(3x^5+7) \d x = \answer[given]{\frac{-\cos(3x^5+7)}{15}} + C.
-\]
-\end{explanation}
-\end{example}
 
 
 

@@ -1,0 +1,72 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+
+\title[Dig-In:]{Higher order derivatives}
+
+\begin{document}
+\begin{abstract}
+ Here we look at higher order derivatives.   
+\end{abstract}
+\maketitle
+
+We call the derivative of the derivative the \dfn{second
+  derivative}, the derivative of the derivative of the derivative the
+\dfn{third derivative}, and so on. We have special notation for
+higher derivatives, check it out:
+\begin{description}
+\item[First derivative:] $\ddx f(x) = f'(x) = f^{(1)}(x)$.
+\item[Second derivative:] $\dd[~^2]{x^2} f(x) = f''(x) = f^{(2)}(x)$.
+\item[Third derivative:] $\dd[~^3]{x^3} f(x) = f'''(x) = f^{(3)}(x)$.
+\end{description}
+
+
+
+\begin{example}
+Compute:
+\[
+\dd[~^2]{x^2} e^{x^{2}}
+\]
+
+\begin{explanation}
+We need to first find $\ddx e^{x^{2}}$
+\[
+\ddx e^{x^{2}} =  \answer[given]{2xe^{x^{2}}}\\
+\]
+Then
+\[
+\dd[~^2]{x^2} e^{x^{2}} =  \ddx 2xe^{x^{2}}
+\]
+\begin{align*}
+\dd[~^2]{x^2} e^{x^{2}} &=  \ddx 2xe^{x^{2}}\\ 
+&= 2x \answer[given]{ 2xe^{x^{2}} }+ \answer[given]{2} 2xe^{x^{2}}
+\end{align*}
+\end{explanation}
+\end{example}
+
+\begin{example}
+Compute:
+\[
+\dd[~^2]{x^2} \ln (x^{2}+2x+10)
+\]
+
+\begin{explanation}
+We need to first find $\ddx  \ln (x^{2}+3x+10)$
+\[
+\ddx \ln (x^{2}+3x+10) =  \answer[given]{\frac{2x+3}{x^{2}+3x+10}}\\
+\]
+Then
+\[
+\dd[~^2]{x^2} \ln (x^{2}+3x+10) =  \ddx \frac{2x+3}{x^{2}+3x+10}
+\]
+\begin{align*}
+\dd[~^2]{x^2} \ln (x^{2}+3x+10) &=  \ddx \frac{2x+3}{x^{2}+3x+10}\\ 
+&=  \frac{ \answer[given]{2}(x^{2}+3x+10)+ (2x+3)\answer[given]{2x+3} }{ \answer[given]{(x^{2}+3x+10)^{2} }}
+\end{align*}
+\end{explanation}
+\end{example}
+
+
+
+\end{document}

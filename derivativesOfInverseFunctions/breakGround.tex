@@ -2,9 +2,6 @@
 
 \input{../preamble.tex}
 
-\outcome{Recall the meaning and properties of inverse trigonometric functions.}
-\outcome{Understand how the derivative of an inverse function relates to the
-original derivative.}
 
 \title[Break-Ground:]{We can figure it out}
 
@@ -23,21 +20,25 @@ story):
 \item[Devyn] What's the derivative of $\arctan(x)$?
 \item[Riley] Hmmm\dots we haven't talked about that yet in our class.
 \item[Devyn] I know! But maybe we can figure it out.
-\item[Riley] Well
-  \[
-  \arctan(x) = \tan^{-1}(x)
-  \]
+\item[Riley] Well, if
+
+\[ 
+f(x)=e^{x} \text{ then } f^{-1}(x)=\ln (x) 
+\]
+so
+\[
+\ln(x) =  e^{-x} 
+\]
   and now we can use the chain rule to take its derivative
   \begin{align*}
-    \ddx \tan^{-1}(x) &= -\tan^{-2}(x)\sec^2(x)\\
-    &= -\frac{\cos^2x}{\sin^2x}\cdot \frac{1}{\cos^2x}\\
-    &= \frac{-1}{\sin^2x}\\
-    &= -\csc^2x
-  \end{align*}
+    \ddx \ln(x) &= \ddx e^{-x} \\
+    &= -e^{-x}\\
+    &= -\ln(x)\\
+   \end{align*}
 \item[Devyn] But is this right?
 \end{dialogue}
 
-Let's see if we can figure out if Devyn and Riley are correct. Start by looking at a plot of $\theta = \arctan(x)$:
+Let's see if we can figure out if Devyn and Riley are correct. Start by looking at a plot of $y = \ln(x)$:
 
 \begin{image}
 \begin{tikzpicture}
@@ -47,14 +48,14 @@ Let's see if we can figure out if Devyn and Riley are correct. Start by looking 
             ytick={0, -1.57,1.57},
             width=9in,
             height=2.5in,
-            yticklabels={$0$, $-\pi/2$,$\pi/2$},
+            yticklabels={$0$, $-2$,$2$},
             xtick={0},
             unit vector ratio*=1 1 1,
-            xlabel=$x$, ylabel=$\theta$,
+            xlabel=$x$, ylabel=$y$,
             every axis y label/.style={at=(current axis.above origin),anchor=south},
             every axis x label/.style={at=(current axis.right of origin),anchor=west},
           ]        
-          \addplot [very thick, penColor3!20!penColor2, samples=100,smooth, domain=(-6:6)] {atan(x)*pi/180};
+          \addplot [very thick, penColor3!20!penColor2, samples=100,smooth, domain=(-6:6)] {ln(x)};
           \addplot [textColor,dashed] plot coordinates {(-6,-1.57) (6,-1.57)};
           \addplot [textColor,dashed] plot coordinates {(-6,1.57) (6,1.57)};
         \end{axis}
@@ -64,31 +65,31 @@ Let's see if we can figure out if Devyn and Riley are correct. Start by looking 
 \end{image}
 
 \begin{problem}
-  Let $f(x) = \arctan(x)$. Use the plot above to determine the behavior of the derivative of $f$ as $x$ gets very large.  If the limit does not exist, enter ``DNE''.
+  Let $f(x) = ln(x)$. Use the plot above to determine the sign of the derivative of $f$.  
   \[
-  \lim_{x\to \infty} f'(x)
+   f'(x)
   \begin{prompt}
-    = \answer{0}
-  \end{prompt}
+     \answer{ >}
+  \end{prompt} 0
   \]
 \end{problem}
 
 On the other hand,
 
 \begin{problem}
-  Compute the limit of $- \csc^2 (x)$ as $x$ goes to infinity.  If the limit does not exist, enter ``DNE''.
+  What is the sign of $-e^{-x}$?
   \[
-  \lim_{x\to \infty}(-\csc^2 (x))
+  -e^{-x} 
   \begin{prompt}
-    = \answer{DNE}
-  \end{prompt}
+     \answer{ <}
+  \end{prompt} 0
   \]
 \end{problem}
 
 \begin{problem}
 In light of the problems above, is it possible that
 \[
-\ddx \arctan(x) = -\csc^2(x)?
+\ddx \ln(x) = -e^{-x}?
 \]
 \begin{multipleChoice}
 	\choice{yes}
@@ -97,9 +98,9 @@ In light of the problems above, is it possible that
 \end{problem}
 
 \begin{problem}
-	When our friends wrote $\arctan(x) = \tan^{-1}(x)$, what do they think the ``$-1$'' represents?  Are they correct?
+	When our friends wrote $\ln(x) =f^{-1}(x)$ wheren $f(x)=e^{x}$, what do they think the ``$-1$'' represents?  Are they correct?
 	\begin{freeResponse}
-		Riley thinks that we can use the power rule on the $-1$, which tells us that the students are using $-1$ as an exponent for the tangent function.  However, in the case of inverse functions such as $\arctan(x)$, the $-1$ is not an exponent.
+		Riley thinks that we can use the power rule on the $-1$, which tells us that the students are using $-1$ as an exponent for the exponential function.  However, in the case of inverse functions such as $\ln(x)$, the $-1$ is not an exponent.
 	\end{freeResponse}
 \end{problem}
 

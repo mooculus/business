@@ -1,0 +1,68 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+
+
+\title[Break-Ground:]{Exponential Functions and Derivatives}
+
+\begin{document}
+\begin{abstract}
+
+\end{abstract}
+\maketitle
+
+Check out this dialogue between two calculus students (based on a true
+story):
+
+\begin{dialogue}
+\item[Devyn] We learned how to take the derivative of $x^n$, but I wonder how you find the derivative of $n^x$?
+\item[Riley] That's easy, 
+\[
+\ddx n^x = xn^{x-1}
+\]
+\item[Devyn] I don't think it is that easy, but you could be right.
+\item[Riley] Could be?
+\end{dialogue}
+
+To get an idea of how to find the derivative of an exponential function, let's look at one specific exponential function:
+\[ 
+f(x)=2^{x}
+\]
+
+Remember from the definition of the derivative that the derivative of a function at a value is approximated by slopes of secant lines. Let's 
+look at what is happening with $f(x)=2^{x}$.
+
+Recall that the slope of the secant line between $(x,f(x))$ and $(x+1,f(x+1))$ is 
+\[
+\frac{f(x+1)-f(x)}{x+1-x} = \frac{f(x+1)-f(x)}{1}
+\]
+
+{  \renewcommand*{\arraystretch}{1.3}
+  \[
+  \begin{array}{c|c|c}
+    x & f(x) & \frac{f(x+1)-f(x)}{1}\\ \hline
+    1 & 2 & 2\\
+    2 & 4  & 4\\
+    3 & 8  & 8 \\
+    4 & 16 & 16
+  \end{array}
+  \]
+  }
+
+
+
+Looking at these, it seems that the derivative of $2^{x}$ is almost $2^{x}$. It turns out that it is a constant multiple of $2^{x}$. 
+
+If we try the same 
+process with an exponential function to a different base, we will see the same thing occur. Again, the derivative ends up being a constant 
+multiple of the original function. 
+
+What is this constant multiple? We will find out in the next few pages, but first, is there a basic exponential function 
+where the constant is exactly 1? There is and we will look at this function next.
+
+
+ 
+%\input{../leveledQuestions.tex}
+
+\end{document}

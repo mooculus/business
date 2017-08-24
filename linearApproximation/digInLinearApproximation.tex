@@ -3,18 +3,6 @@
 
 \input{../preamble.tex}
 
-\outcome{Define linear approximation as an application of the tangent to a curve.}
-\outcome{Find the linear approximation to a function at a point and use it to approximate the function value.}
-\outcome{Identify when a linear approximation can be used.}
-\outcome{Label a graph with the appropriate quantities used in linear approximation.}
-\outcome{Find the error of a linear approximation.}
-\outcome{Compute differentials.}
-%\outcome{Use the second derivative to discuss whether the linear approximation over or underestimates the actual function value.}
-\outcome{Contrast the notation and meaning of $\d y$ versus $\Delta y$.}
-%\outcome{Understand that the error shrinks faster than the displacement in the input.}
-\outcome{Justify the chain rule via the composition of linear approximations.}
-
-
 \title[Dig-In:]{Linear approximation}
 
 \begin{document}
@@ -107,55 +95,6 @@ calculations involving functions, the linear approximation makes an
 otherwise intractable calculation possible, without serious loss of
 accuracy.
 
-\begin{example}%\label{exam:linear approximation of sine}
-Use a linear approximation of $f(x) =\sin(x)$ at $x=0$ to approximate
-$\sin(0.3)$.
-\begin{explanation}
-To start, write
-\[
-\ddx f(x) = \answer[given]{\cos(x)},
-\]
-so our linear approximation is
-\begin{align*}
-\l(x) &= \answer[given]{\cos(0)}\cdot(x-0) + 0\\
-&= x.
-\end{align*}
-\begin{image}
-%\begin{marginfigure}
-\begin{tikzpicture}
-	\begin{axis}[
-            xmin=-1.6,xmax=1.6,ymin=-1.5,ymax=1.5,
-            axis lines=center,
-            xtick={-1.57, 0, 1.57},
-            xticklabels={$-\pi/2$, $0$, $\pi/2$},
-            ytick={-1,1},
-            %ticks=none,
-            %width=3in,
-            %height=2in,
-            unit vector ratio*=1 1 1,
-            xlabel=$x$, ylabel=$y$,
-            every axis y label/.style={at=(current axis.above origin),anchor=south},
-            every axis x label/.style={at=(current axis.right of origin),anchor=west},
-          ]        
-          \addplot [very thick, penColor, samples=100,smooth, domain=(-1.6:1.6)] {sin(deg(x))};
-          \addplot [very thick, penColor2, samples=100,smooth] {x};
-          \node at (axis cs:1,.6) [penColor] {$f$};
-          \node at (axis cs:-1,-1.2) [penColor2] {$\l$};
-          \addplot[color=penColor3,fill=penColor3,only marks,mark=*] coordinates{(0,0)};  %% closed hole          
-        \end{axis}
-\end{tikzpicture}
-%\caption{A linear approximation of $f(x) = \sin(x)$ at $x=0$.}
-%\label{figure:la sin}
-%\end{marginfigure}
-\end{image}
-Hence a linear approximation for $\sin(x)$ at $x=0$ is $\l(x) = x$,
-and so $\l(0.3) = 0.3$.  Comparing this to $\sin(.3) \approx 0.295$,
-we see that the approximation is quite good. For this reason, it is common
-to approximate $\sin(x)$ with its linear approximation $\l(x) = x$
-when $x$ is near zero.  
-%see Figure~\ref{figure:la sin}.
-\end{explanation}
-\end{example}
 
 
 
@@ -253,7 +192,7 @@ the basic strategy:
   \end{tikzpicture}
 \end{image}
 
-We will repeat our previous examples using differentials.
+We will repeat our previous example using differentials.
 
 \begin{example}
 Use differentials to approximate $\sqrt[3]{50}$.
@@ -301,60 +240,6 @@ Use differentials to approximate $\sqrt[3]{50}$.
 \end{explanation}
 \end{example}
 
-\begin{example}
-Use differentials to approximate $\sin(0.3)$.
-\begin{explanation}
-Set $y = \sin(x)$. We want to know $\sin(0.3)$. Since $\sin(0) = 0$,
-we will set $x = 0$ and $\d x=0.3$. Write with me
-\begin{align*}
-  \sin(0.3) = \sin(x + \d x) &\approx  \sin(x) + \d y\\
-  &\approx 0 + \d y.
-  \end{align*}
-  Here we see a plot of $y=\sin(x)$ with the differentials above
-  marked:
-  \begin{image}
-%\begin{marginfigure}
-\begin{tikzpicture}
-	\begin{axis}[
-            xmin=-1,xmax=1,ymin=-1,ymax=1,
-            axis lines=center,
-            xtick={-1.57, 0, 1.57},
-            xticklabels={$-\pi/2$, $0$, $\pi/2$},
-            ytick={-1,1},
-            %ticks=none,
-            %width=3in,
-            %height=2in,
-            unit vector ratio*=1 1 1,
-            xlabel=$x$, ylabel=$y$,
-            every axis y label/.style={at=(current axis.above origin),anchor=south},
-            every axis x label/.style={at=(current axis.right of origin),anchor=west},
-          ]        
-          \addplot [very thick, penColor, samples=100,smooth, domain=(-1.6:1.6)] {sin(deg(x))};
-          %\addplot [penColor2,very thick] plot coordinates {(0,0) (.3,0)};
-          %\addplot [penColor2,very thick] plot coordinates {(.3,0) (.3,.3)};
-          \addplot [draw=black,dashed,->,>=stealth'] plot coordinates {(0,0) (.3, 0)};
-          \addplot [draw=black,dashed,->,>=stealth'] plot coordinates {(.3,0) (.3, .3)};
-          \node at (axis cs:.6,.7) [penColor] {$f$};
-          \node [below] at (axis cs:.15,.0) {$\d x$};
-          \node [right] at (axis cs:.3,.15) {$\d y$};
-          \node [above left, color=penColor3] at (axis cs:0,0) {$(0,0)$};
-          \addplot[color=penColor3,fill=penColor3,only marks,mark=*] coordinates{(0,0)};  %% closed hole          
-        \end{axis}
-\end{tikzpicture}
-%\caption{A plot of $f(x) = \sin(x)$ along with the differentials $\d x$ and $dy$.}
-\label{figure:diff sin}
-%\end{marginfigure}
-\end{image}
-Now we must compute $\d y$:
-\begin{align*}
-  \d y &= \left(\ddx \sin(x)\right) \cdot \d x\\
-  &=\answer[given]{\cos(0)} \cdot \d x\\
-  &= 1 \cdot (\answer[given]{0.3})\\
-  &= 0.3
-\end{align*}
-Hence $\sin(0.3) \approx \sin(0) + 0.3 \approx 0.3$.
-\end{explanation}
-\end{example}
 
 The upshot is that linear approximations and differentials are simply
 two slightly different ways of doing the exact same thing.

@@ -1,0 +1,43 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+\title[Dig-In:]{Derivatives of general exponential functions}
+
+\begin{document}
+\begin{abstract}
+  We derive the derivatives of  general exponential functions using the chain rule.
+\end{abstract}
+\maketitle
+
+
+\begin{theorem}[The derivative of a general exponential function]
+  \[
+  \ddx a^x = a^x\cdot \ln(a).
+  \]
+  \begin{explanation}
+    Here we need to be slightly sneaky. Note
+    \[
+    a^x = e^{\ln(a^x)} = e^{x\ln(a)}.
+    \]
+    So we may write
+    \begin{align*}
+      \ddx a^x &= \ddx e^{x\ln(a)}\\
+      &= e^{x\ln(a)} \cdot \answer[given]{\ln(a)}\\
+      &= \answer[given]{a^x\cdot \ln(a)}.
+    \end{align*}
+  \end{explanation}
+\end{theorem}
+
+\begin{question}
+  Compute:
+  \[
+  \ddx 7^x
+  \begin{prompt}
+    = \answer{7^x \ln(7)}
+  \end{prompt}
+  \]
+\end{question}
+
+
+\end{document}

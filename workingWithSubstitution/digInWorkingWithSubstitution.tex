@@ -2,9 +2,6 @@
 
 \input{../preamble}
 
-\outcome{To be able to use the method of substitution to solve more difficult types of integrals.}
-\outcome{To be able to both correctly identify what to substitute for and to be able to successfully carry out the process to correctly solve the problem.}
-
 \title[Dig-In:]{Working with substitution}
 
 \begin{document}
@@ -118,42 +115,28 @@ this technique can be used.
 \begin{example}
 Compute:
 \[
-\int \frac{\sec(y) \tan(y) + \sec^2(y)}{\sec(y) + \tan(y)} \d y
+\int \frac{2y+5}{y^{2}+5y} \d y
 \]
 \begin{explanation}
 We substitute
 \[
-g = \sec(y) + \tan(y)
+g = y^{2}+5y
 \]
 and we immediately see that
 \begin{align*}
-  \d g &= \answer[given]{(\sec(y) \tan(y) + \sec^2(y))} \d y,\\
-  \d y &= \frac{1}{\answer[given]{\sec(y) \tan(y) + \sec^2(y)}} \d g.
+  \d g &= \answer[given]{2y+5} \d y,\\
+  \d y &= \frac{1}{\answer[given]{2y+5}} \d g.
 \end{align*}
 But this cancels perfectly with the numerator!  
 So we have that
 \begin{align*}
-\int \frac{\sec(y) \tan(y) + \sec^2(y)}{\sec(y) + \tan(y)} \d y &= \int \frac{1}{g} \d g  \\
+\int \frac{2y+5}{y^{2}+5y} \d y &= \int \frac{1}{g} \d g  \\
 &= \ln|g| + C  \\
-&= \ln| \sec(y) + \tan(y) | + C.
+&= \ln| y^{2}+5y | + C.
 \end{align*}
 \end{explanation}
 \end{example}
 
-
-
-Notice that 
-\[
-\frac{\sec(x) \tan(x) + \sec^2(x)}{\sec(x) + \tan(x)} = \frac{\sec(x) (\tan(x) + \sec(x))}{\sec(x) + \tan(x)} = \sec(x)
-\]
-when $\sec(x) \neq - \tan(x)$.  
-So in a very contrived way, we have just proved
-
-\begin{theorem}
-\[
-\int \sec(x) \d x = \ln|\sec(x) + \tan(x)| + C.
-\]
-\end{theorem}
 
 
 Notice the variable in this next example.
@@ -191,62 +174,6 @@ Thus
 
 
 
-%This last example is a little more involved, and instead we will state the problem as a Theorem.
-%The example is really the proof of the Theorem.
-
-\begin{example}\label{example tan}
-Compute:
-\[
-\int \tan(x) \d x
-\]
-\begin{explanation}
-We begin by writing
-\begin{align*}
-\tan(x) &= \frac{\sin(x)}{\cos(x)}  \\
-&= \frac{\sin(x)}{\cos(x)} \cdot \frac{\cos(x)}{\cos(x)}  \\
-&= \frac{\sin(x) \cos(x)}{1 - \sin^2(x)}.
-\end{align*}
-We then make the substitution
-\[
-g = \sin(x)
-\]
-and so
-\begin{align*}
-\d g &= \answer[given]{\cos(x)} \d x,\\
-\d x &= \frac{1}{\answer[given]{\cos(x)}} \d g.
-\end{align*}
-Then
-\begin{align*}
-\int \tan(x) \d x &= \int \frac{\sin(x) \cos(x)}{1 - \sin^2(x)} \d x  \\
-&= \int \frac{g \cos(x)}{1 - g^2} \cdot \frac{1}{\answer[given]{\cos(x)}} \d g  \\
-&= \int \frac{g}{1-g^2} \d g.
-\end{align*}
-But this is the same problem as Example \ref{key example}!  
-And so we know that
-\begin{align*}
-\int \tan(x) \d x &= - \frac{1}{2} \ln|1-g^2| + C  \\
-&= - \frac{1}{2} \ln|1-\sin^2 (x)| + C  \\
-&= - \frac{1}{2} \ln|\cos^2(x)| + C  \\
-&= \ln|\cos^2(x)|^{- \frac{1}{2}} + C  \\
-&= \ln|\sec(x)| + C.
-\end{align*}
-\end{explanation}
-\end{example}
-
-We have just proved
-
-\begin{theorem}
-\[
-\int \tan(x) \d x = \ln|\sec(x)| + C.
-\]
-\end{theorem}
-
-Note that in Example \ref{example tan}, we could have instead made the substitution
-\[
-g = 1-\sin^2(x).
-\]
-This would have gotten us to the answer quicker and without using Example \ref{key example}.  
-You are encouraged to work this out on your own right now!
 
 We end this section with two more difficult examples.
 

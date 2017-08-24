@@ -1,0 +1,83 @@
+\documentclass{ximera}
+
+\input{../preamble.tex}
+
+
+\title[Break-Ground:]{Stars and functions}
+
+\begin{document}
+\begin{abstract}
+Two young mathematicians discuss stars and functions.
+\end{abstract}
+\maketitle
+
+Check out this dialogue between two calculus students (based on a true
+story):
+
+\begin{dialogue}
+\item[Devyn] Riley, did you know I like looking at the stars at night?
+\item[Riley] Stars are freaking awesome balls of nuclear fire whose
+  light took thousands of years to reach us.
+\item[Devyn] I know! But did you know that the best way to see a very
+  dim star is to look \textbf{near} it but \textbf{not exactly at} it? It's
+  because then you can use the ``rods'' in your eye, which work better
+  in low light than the ``cones'' in your eyes.
+\item[Riley] That's amazing! Hey, that reminds me of when we were talking about the two functions
+  \[
+  f(x) = \frac{x^2-3x+2}{x-2}\qquad\text{and}\qquad g(x)= x-1,
+  \]
+  which we now know are completely different functions.
+\item[Devyn] Whoa. How are you seeing a connection here?
+\item[Riley] If we want to understand what is happening with the
+  function
+  \[
+  f(x) = \frac{x^2-3x+2}{x-2},
+  \]
+  at $x=2$, we can't do it by setting $x=2$. Instead we need to look
+  \textbf{near} $x=2$ but \textbf{not exactly at} $x=2$.
+  \item[Devyn] Ah ha! Because if we are \textbf{not exactly at} $x=2$,
+    then
+    \[
+    \frac{x^2-3x+2}{x-2} = x-1.
+    \]
+\end{dialogue}
+
+\begin{problem}
+  Let $f(x) = \frac{x^2-3x+2}{x-2}$ and $g(x) = x-1$. Which of the following is true?
+  \begin{multipleChoice}
+  \choice{$f(x) = g(x)$  for every value of $x$.}
+  \choice{There is no $x$-value where $f(x) = g(x)$.}
+  \choice[correct]{$f(x) = g(x)$ when $x\ne 2$.}
+  \end{multipleChoice}
+\end{problem}
+
+\begin{problem}
+  When you evaluate
+  \[
+  f(x) = \frac{x^2-3x+2}{x-2},
+  \]
+  at $x$-values approaching (but not equal to) $2$, what happens to the value of $f(x)$?
+  \begin{prompt}
+    The value of $f(x)$ approaches $\answer{1}$.
+  \end{prompt}
+  \begin{problem}
+    Just from checking some values, can you be absolutely certain that your
+    answer to the previous problem is correct?
+    \begin{multipleChoice}
+      \choice{yes}
+      \choice[correct]{no}
+    \end{multipleChoice}
+    \begin{feedback}
+      Here you only have information about a few specific points on
+      the graph.  There are infinitely many $x$-values close to, but
+      not equal to, $x = 2$. Hence we cannot be completely certain.
+    \end{feedback}
+  \end{problem}
+\end{problem}
+
+% reconcile two experiences: we say limits are about "closer and closer" but in practice we just compute algebraically.  How do you reconcile these two experiences? <--- Better in the next section.
+
+%\input{../leveledQuestions.tex}
+
+
+\end{document}

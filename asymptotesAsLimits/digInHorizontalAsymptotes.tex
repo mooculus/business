@@ -4,13 +4,6 @@
 
 \title[Dig-In:]{Horizontal asymptotes}
 
-\outcome{Find horizontal asymptotes using limits.}
-\outcome{Recognize that a curve can cross a horizontal asymptote.}
-\outcome{Calculate the limit as $x$ approaches $\pm \infty$ of common functions algebraically.}
-\outcome{Find the limit as $x$ approaches $\pm \infty$ from a graph.}
-\outcome{Define a horizontal asymptote.}
-\outcome{Compute limits at infinity of famous functions.}
-\outcome{Identify horizontal asymptotes by looking at a graph.}
 
 \begin{document}
 \begin{abstract}
@@ -109,54 +102,6 @@ we can also apply the Squeeze Theorem when taking limits at infinity.
 Here is an example of a limit at infinity that uses the Squeeze
 Theorem, and shows that functions can, in fact, cross their horizontal
 asymptotes.
-
-
-\begin{example}
-Compute:
-\[
-\lim_{x\to \infty} \frac{\sin(7x)+4x}{x}
-\]
-\begin{image}
-\begin{tikzpicture}
-	\begin{axis}[
-            domain=2:20,
-            ymax=5,
-            ymin=3,
-            samples=100,
-            axis lines =middle, xlabel=$x$, ylabel=$y$,
-            every axis y label/.style={at=(current axis.above origin),anchor=south},
-            every axis x label/.style={at=(current axis.right of origin),anchor=west}
-          ]
-	  \addplot [very thick, penColor, smooth] {(1/x) * sin(deg(7*x))+4};
-        \end{axis}
-\end{tikzpicture}
-%% \caption{A plot of $f(x)=\frac{\sin(7x)}{x}+4$.}
-%% \label{plot:sin7x/x+4}
-\end{image}
-
-\begin{explanation}
-We can bound our function
-\[
-\frac{-1+4x}{x} \le \frac{\sin(7x)+4x}{x} \le \frac{1+4x}{x}.
-\]
-Now write with me
-\begin{align*}
-\lim_{x\to\infty}\frac{-1+4x}{x} \cdot \frac{1/x}{1/x} &= \lim_{x\to\infty}\frac{-1/x+4}{1}\\
-&=4.
-\end{align*}
-And we also have
-\begin{align*}
-\lim_{x\to\infty}\frac{1+4x}{x} \cdot \frac{1/x}{1/x} &= \lim_{x\to\infty}\frac{1/x+4}{1}\\
-&=4.
-\end{align*}
-Since 
-\[
-\lim_{x\to \infty} \frac{-1+4x}{x}  = 4 = \lim_{x\to \infty}\frac{1+4x}{x} 
-\] 
-we conclude by the Squeeze Theorem,
-$\lim_{x\to\infty}\frac{\sin(7x)}{x}+4 = 4$.
-\end{explanation}
-\end{example}
 
 
 

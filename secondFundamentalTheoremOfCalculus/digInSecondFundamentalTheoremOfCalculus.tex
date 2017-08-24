@@ -2,10 +2,6 @@
 
 \input{../preamble.tex}
 
-\outcome{State the Second Fundamental Theorem of Calculus.}
-\outcome{Evaluate definite integrals using the Second Fundamental Theorem of Calculus.}
-\outcome{Understand how the area under a curve is related to the antiderivative.}
-\outcome{Understand the relationship between indefinite and definite integrals.}
 
 \title[Dig-In:]{The Second Fundamental Theorem of Calculus}
 
@@ -100,24 +96,6 @@ Let's see some examples of the fundamental theorem in action.
 \end{example}
 
 
-\begin{example}
-  Compute:
-  \[
-  \int_0^\pi \sin \theta \d \theta
-  \]
-  \begin{explanation}
-    We start by finding an antiderivative of $\sin \theta$.  A correct
-    choice is $-\cos\theta$, one could verify this by taking the
-    derivative. Hence
-    \begin{align*}
-      \int_0^\pi \sin\theta \d \theta &= \eval{-\cos\theta}_0^\pi\\
-      &=\answer[given]{-\cos(\pi)} - (-\cos(0))\\
-      &=\answer[given]{2}.
-    \end{align*}
-    This is interesting: It says that the area under one ``hump'' of a
-    sine curve is $2$.
-  \end{explanation}
-\end{example}
 
 \begin{example}
   Compute:
@@ -156,47 +134,6 @@ by taking the derivative. Hence
 
 
 
-\section{Understanding motion with the Fundamental Theorem of Calculus}
-
-We know that
-\begin{itemize}
-\item The derivative of a position function is a velocity function.
-\item The derivative of a velocity function is an acceleration
-  function.
-\end{itemize}
-Now consider definite integrals of velocity and acceleration
-functions. Specifically, if $v(t)$ is a velocity function, what does
-$\int_a^b v(t)\d t$ mean?
-
-The Second Fundamental Theorem of Calculus states that
-\[
-\int_a^b v(t)\d t = V(b) - V(a),
-\]
-where $V(t)$ is any antiderivative of $v(t)$. Since $v(t)$ is a
-velocity function, $V(t)$ must be a position function, and $V(b) -
-V(a)$ measures a \textbf{change in position}, or \dfn{displacement}.
-
-\begin{example}
-  A ball is thrown straight up with velocity given by $v(t) =
-  -32t+20$ft/s, where $t$ is measured in seconds. Find, and interpret,
-  $\int_0^1 v(t)\d t$.
-    \begin{explanation}
-      Using the Second Fundamental Theorem of Calculus, we have
-      \begin{align*}
-        \int_0^1 v(t)\d t &= \int_0^1 (-32t+20)\d t \\
-	&= \eval{\answer[given]{-16t^2 + 20t}}_0^1 \\
-	&= 4.
-      \end{align*}
-      Thus if a ball is thrown straight up into the air with velocity
-      \[
-      v(t) = \answer[given]{-32t+20},
-      \]
-      the height of the ball, $1$ second later, will be $4$ feet above the
-      initial height. Note that the ball has \textit{traveled} much
-      farther. It has gone up to its peak and is falling down, but the
-      difference between its height at $t=0$ and $t=1$ is $4$ft. 
-    \end{explanation}
-\end{example}    
 
 
 
