@@ -2,7 +2,7 @@
 
 \newcommand{\todo}{}
 
-\usepackage{esint} % for \oiint
+%\usepackage{esint} % for \oiint
 \graphicspath{
 {./}
 {functionsOfSeveralVariables/}
@@ -15,14 +15,16 @@
 
 
 \usepackage{tkz-euclide}
+
 \tikzset{>=stealth} %% cool arrow head
 \tikzset{shorten <>/.style={ shorten >=#1, shorten <=#1 } } %% allows shorter vectors
 
 \usetikzlibrary{backgrounds} %% for boxes around graphs
 \usetikzlibrary{shapes,positioning}  %% Clouds and stars
 \usetikzlibrary{matrix} %% for matrix
+\usetikzlibrary{patterns} 
 \usepgfplotslibrary{polar} %% for polar plots
-\usetkzobj{all}
+
 \usepackage[makeroom]{cancel} %% for strike outs
 %\usepackage{mathtools} %% for pretty underbrace % Breaks Ximera
 \usepackage{multicol}
